@@ -1,0 +1,284 @@
+/* FONT FACES */
+
+@font-face {
+    font-family: petrov;
+    font-weight: normal;
+    src: url("fonts/petrov/PetrovSans-Trial-Regular.otf");
+}
+
+@font-face {
+    font-family: petrov;
+    font-weight: bold;
+    src: url("fonts/petrov/PetrovSans-Trial-Bold.otf");
+}
+
+@font-face {
+    font-family: petrov;
+    font-weight: bolder;
+    src: url("fonts/petrov/PetrovSans-Trial-Black.otf");
+
+}
+
+@font-face {
+    font-family: petrov;
+    font-weight: lighter;
+    src: url("fonts/petrov/PetrovSans-Trial-Light.otf");
+}
+
+@font-face {
+    font-family: petrov;
+    font-weight: thin;
+    src: url("fonts/petrov/PetrovSans-Trial-Thin.otf");
+}
+
+@font-face {
+    font-family: spinwerad;
+    font-weight: normal;
+    src: url("fonts/spinwerad.ttf");
+}
+
+@font-face {
+    font-family: fraunces;
+    font-weight: normal;
+    src: url("fonts/fraunces/Fraunces_144pt-Regular.ttf");
+}
+
+@font-face {
+    font-family: fraunces;
+    font-weight: bold;
+    src: url("fonts/fraunces/Fraunces_144pt-Regular.ttf");
+}
+
+@font-face {
+    font-family: fraunces;
+    font-weight: bolder;
+    src: url("fonts/fraunces/Fraunces_144pt-Black.ttf");
+}
+
+@font-face {
+    font-family: fraunces;
+    font-weight: lighter;
+    src: url("fonts/fraunces/Fraunces_144pt-Light.ttf");
+}
+
+@font-face {
+    font-family: fraunces;
+    font-weight: thin;
+    src: url("fonts/fraunces/Fraunces_144pt-Thin.ttf");
+}
+
+/* TAGS */
+
+:root {
+    --transparent-color: rgba(0, 0, 0, 0);
+    --accentuation-color: greenyellow;
+    --theme-color-1: greenyellow;
+    --theme-color-2: rgb(200, 0, 255);
+    --theme-color-3: rgb(255, 255, 255);
+}
+
+html {
+    height: 100vh;
+    box-shadow: 0 0 2000px rgb(0, 0, 0) inset;
+}
+
+body {
+    display: flex;
+    margin: 0;
+
+    background-image: url(images/noise.gif);
+    background-size: 100%;
+
+    font-family: fraunces;
+    color: var(--accentuation-color);
+    font-weight: thin;
+    
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+
+    margin: 2rem 0 0 2rem;
+    padding-right: 2rem;
+    min-height: 80vh;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--accentuation-color);
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(
+        90deg,
+        var(--transparent-color) 0%,
+        var(--transparent-color) 50%,
+        var(--accentuation-color) 50%,
+        var(--accentuation-color) 100%
+    );
+
+    padding: 0 3px;
+
+    transition: color 0.5s ease-in-out, background-position 0.8s ease-in-out;
+}
+
+a:hover {
+    cursor: pointer;
+
+    background-position: -100% 100%;
+
+    color: black;
+}
+
+img, canvas {
+    width: 20%;
+    transition: scale 0.4s ease-in-out;
+}
+
+img:hover, canvas:hover {
+    scale: 1.1;
+}
+
+/* CLASSES */
+
+.headerTitle {
+    font-size: 2.5rem;
+    margin-bottom: 3.5rem;
+
+}
+
+.headerCategories {
+    display: block;
+}
+
+.headerCategory {
+    width: fit-content;
+
+    font-size: 1.2rem;
+    font-weight: lighter;
+
+    margin-bottom: 0.5rem;
+}
+
+.content {
+    flex: 1;
+
+    margin-top: 5rem;
+    margin-right: 5rem;
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(
+        90deg,
+        var(--transparent-color) 0%,
+        var(--transparent-color) 50%,
+        var(--accentuation-color) 50%,
+        var(--accentuation-color) 100%
+    );
+
+    transition: background-position 1.2s ease-in-out;
+}
+
+.content img, .content canvas {
+    transition: opacity 0.5s ease-in-out, scale 0.4s ease-in-out;
+}
+
+.falselyHidden {
+    background-color: var(--accentuation-color);
+}
+
+.content p {
+    text-align: center;
+    font-weight: normal;
+
+    padding-left: 2rem;
+    border-left: 1px solid var(--accentuation-color);
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    width: 100%;
+
+    right: 0;
+    bottom: 0;
+
+    border-top: 1px solid var(--accentuation-color);
+
+    justify-content: space-evenly;
+}
+
+/* ANIMATIONS */
+
+.themeButtons {
+    display: flex;
+    align-items: center;
+    position: fixed !important;
+    top: 1.2rem;
+    right: 1.2rem;
+    padding: 0.5rem 0.5rem;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.themeButtons span {
+    margin: 0;
+    width: 0rem;
+    height: 0rem;
+    border-radius: 50%;
+
+    filter: brightness(0.7);
+
+    transition: scale 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out, margin 0.5s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.themeButtons:hover span {
+    margin: 0 0.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+
+    cursor: pointer;
+}
+
+.themeButtons span:hover {
+    scale: 1.2;
+    filter: brightness(1);
+}
+
+.themeButtons .alwaysShow {
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+}
+
+.hidden {
+    color: var(--transparent-color);
+}
+
+.fade {
+    background-position: -100% 100%;
+}
+
+.fade img, .fade canvas, .fadeEnd img, .fadeEnd canvas {
+    opacity: 0;
+}
+
+.fadeEnd {
+    background-position: -200% 100%;
+}
+
+.correction {
+    transition: background-position 0s;
+}
+
+.dont {
+    /* BE CAREFUL */
+    font-weight: bolder;
+}
+
+/* Other */
+
+::selection {
+    color: black;
+    background: var(--accentuation-color);
+}
